@@ -1,8 +1,7 @@
 import os
-
+import matplotlib.image as mpimg
 import numpy as np
 import torch
-import cv2
 from torchvision import transforms
 from predictions.model import DRUnet
 from PIL import Image
@@ -30,7 +29,7 @@ class Segmentation:
         self.image_path = image_path
 
     def segment(self):
-        image = cv2.imread(self.image_path, 0)
+        image = mpimg.imread(self.image_path)
         image = Image.fromarray(image)
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         image_tensor = self._transformer(image)

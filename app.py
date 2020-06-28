@@ -1,9 +1,11 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, Response, send_file
 import numpy as np
 import os
 import matplotlib.image as mpimg
 from predictions.predictor import Segmentation
 import matplotlib.pyplot as plt
+import cv2
+
 
 app = Flask(__name__)
 
@@ -34,14 +36,14 @@ def submit():
     global name_file
     segmentor = Segmentation(name_file)
     mask = segmentor.segment()
-    mpimg.imsave("static/output_images/out.png", mask)
+    mpimg.imsave(os.path.join("static/output_images", "out.png"), mask)
     return redirect("/output")
 
 
 @app.route("/output")
 def output():
     global name_file
-    return render_template("output.html", input_image = name_file , output_image="static/output_images/out.png")
+    return render_template("output.html", input_image=name_file, output_image=os.path.join("static/output_images", "out.png"))
 
 
 if __name__ == "__main__":
