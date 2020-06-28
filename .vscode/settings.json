@@ -1,0 +1,41 @@
+{
+    "files.autoSave": "off",
+
+    "editor.rulers": [],
+
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 85,
+    "editor.wrappingIndent": "same",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "text.notes.info",
+                "settings": {
+                    "foreground": "#17a2b8",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": "text.notes.success",
+                "settings": {
+                    "foreground": "#28a745",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": "text.notes.warning",
+                "settings": {
+                    "foreground": "#ffc107",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": "text.notes.danger",
+                "settings": {
+                    "foreground": "#dc3545",
+                    "fontStyle": "bold"
+                }
+            }
+        ]
+    }
+}

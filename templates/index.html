@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title>Deep Learning API</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="header">
+        <h1>Home Page</h1>
+    </div>
+
+    <div class="body">
+        <p>Upload the image</p>
+        <form class="form" method="POST" action="/" enctype="multipart/form-data">
+            <input type="file" name="image">
+
+            <div class="button">
+                <br>
+                <input type="submit">
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
