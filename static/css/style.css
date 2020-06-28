@@ -9,13 +9,23 @@
     text-align: center;
 }
 
+.headero {
+    background-color: rgb(0, 0, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0em;
+    color: rgb(255, 0, 0);
+    padding: 1px;
+    text-align: center;
+}
+
 .form {
     background-color: rgb(255, 255, 255);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
     font-weight: bold;
     margin-left: 4em;
-    /* padding: 2%; */
     text-align: center;
 }
 
@@ -25,7 +35,6 @@
     font-size: 20px;
     font-weight: bold;
     margin-left: -4em;
-    /* padding: 2%; */
     text-align: center;
 }
 
@@ -35,19 +44,26 @@
     font-size: 20px;
     font-weight: bold;
     color: rgb(37, 219, 98);
-    /* padding: 2%; */
     text-align: center;
 }
 
-.image {
-    display: block;
-    margin-top: 3%;
-    margin-left: 37%;
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 5px;
 }
 
 a:link,
 a:visited {
-    margin-top: 4%;
+    margin-top: 1%;
     margin-left: 44%;
     background-color: #f44336;
     color: white;

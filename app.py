@@ -9,16 +9,25 @@ app = Flask(__name__)
 
 # For renaming the incoming input image
 name_file = None
+
+
 @app.route("/", methods=["POST", "GET"])
 def home_page():
     global name_file
+
+    if name_file is not None:
+        if os.path.exists(name_file):
+            os.remove(name_file)
+            name_file = None
+
     if request.method == "GET":
         return render_template("index.html")
     else:
         f = request.files['image']
-        f.save(f.filename)
-        name_file = f.filename
+        f.save(os.path.join("static/output_images", f.filename))
+        name_file = os.path.join("static/output_images", f.filename)
         return redirect("/submit")
+
 
 @app.route("/submit", methods=["POST", "GET"])
 def submit():
@@ -26,12 +35,14 @@ def submit():
     segmentor = Segmentation(name_file)
     mask = segmentor.segment()
     mpimg.imsave("static/output_images/out.png", mask)
-    os.remove(name_file)
     return redirect("/output")
+
 
 @app.route("/output")
 def output():
-    return render_template("output.html" , output_image = "static/output_images/out.png")
+    global name_file
+    return render_template("output.html", input_image = name_file , output_image="static/output_images/out.png")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
