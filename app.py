@@ -45,6 +45,10 @@ def output():
     global name_file
     return render_template("output.html", input_image=name_file, output_image=os.path.join("static/output_images", "out.png"))
 
+"In this end point image is directly returned"
+@app.route("/return_1")
+def return_1():
+    pass
 
 if __name__ == "__main__":
     app.run(debug=True)
